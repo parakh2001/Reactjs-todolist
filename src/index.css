@@ -1,3 +1,4 @@
+/* General Styles */
 * {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -14,18 +15,22 @@ button {
   font-family: 'Press Start 2P', system-ui;
 }
 
+/* Root Container */
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 14px;
-  background: #eff6ff;
-  gap: 14px;
+  padding: 20px;
+  background: linear-gradient(135deg, #eff6ff 25%, #c3daf9 100%);
+  gap: 20px;
 }
 
+/* Header Section */
 header {
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 header,
@@ -33,58 +38,72 @@ header,
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
-  gap: 14px;
 }
 
 header input {
   flex: 1;
-  border-radius: 14px;
+  border-radius: 8px;
   outline: none;
-  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+header input:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header button {
-  border-radius: 14px;
-  background: transparent;
-  transition-duration: 200ms;
+  border-radius: 8px;
+  background: #4caf50;
+  color: white;
+  transition: background 0.3s ease, opacity 0.3s ease;
   cursor: pointer;
+  padding: 14px 18px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header button:hover {
-  opacity: 0.7;
+  background: #45a049;
+  opacity: 0.9;
 }
 
-header button,
-header input {
-  padding: 14px 18px;
-  border: none;
-  outline: none;
-  background: white;
-}
-
+/* Paragraph */
 p {
   font-size: 0.9em;
 }
 
+/* Main Section */
 .main {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
 }
 
+/* Todo Item */
 .todoItem {
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 14px;
-  border-radius: 14px;
+  border-radius: 8px;
   background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.todoItem:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .todoItem p {
   flex: 1;
 }
 
+/* Actions Container */
 .actionsContainer {
   display: flex;
   align-items: center;
@@ -92,20 +111,20 @@ p {
 }
 
 .actionsContainer button {
-  transition-duration: 200ms;
+  transition: opacity 0.3s ease;
   border: none;
   background: transparent;
   cursor: pointer;
+  padding: 8px;
+  color: #202124;
 }
 
 .actionsContainer button:hover {
   opacity: 0.7;
 }
 
-
-
+/* Font Size Adjustments for Larger Screens */
 @media (min-width: 640px) {
-
   header button,
   header input {
     font-size: 1.2em;
