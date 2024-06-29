@@ -1,23 +1,25 @@
 import { TodoList } from './components/TodoList';
 import { TodoInput } from './components/TodoInput';
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(()=>{
+    const savedTodos = localStorage.getItem('todos');
+    return savedTodos?JSON.parse(savedTodos):[];
+  });
   function handleAddTodos(newTodo) {
     const newTodoList = [...todos, newTodo];
     setTodos(newTodoList);
   }
   function handleDeleteTodo(index){
-    const newTodoList = todos.filter((todo,todoIndex)=>{
-      return todoIndex !==index
-    })
-    setTodos(newTodoList);
+    
   }
   function handleEditTodo(Index){
-    // function to edit the todo
-    // todos[index] = 
+
   }
+  // we want to persist it on every page reload in localStorage for that we have to use useEffect
+  useEffect(()=>{
+    localStorage.setItem('todos',JSON.stringify(todos));
+  },[todos])
   return (
     <main>
       <TodoInput handleAddTodos={handleAddTodos}/>
@@ -25,5 +27,4 @@ function App() {
     </main>
   );
 }
-
 export default App;
